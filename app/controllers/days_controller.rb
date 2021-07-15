@@ -19,7 +19,7 @@ class DaysController < ApplicationController
     end
 
     def show 
-
+        @day = Day.find_by_id(params[:id])
     end
 
     def new 
@@ -29,4 +29,6 @@ class DaysController < ApplicationController
     def create 
 
     end
+
+    
 end
