@@ -19,7 +19,7 @@ class DaysController < ApplicationController
     end
 
     def show 
-        @day = Day.find_by_id(params[:id])
+        set_day
     end
 
     def new 
@@ -28,6 +28,16 @@ class DaysController < ApplicationController
 
     def create 
 
+    end
+
+    private
+
+    def set_day
+        @day = Day.find_by_id(params[:id])
+    end
+
+    def day_params
+        params.require(:day).permit(:date, :title, :content, :favorite, :user_id)
     end
 
     
